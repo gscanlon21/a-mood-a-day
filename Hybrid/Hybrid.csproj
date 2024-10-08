@@ -73,7 +73,7 @@
       <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="8.0.91" />
       <PackageReference Include="CommunityToolkit.Maui" Version="9.1.0" />
       <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="8.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
       <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
     </ItemGroup>
 

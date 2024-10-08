@@ -13,16 +13,14 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group mb-3">
-                <label for="Recipe-name" class="control-label">@Html.DisplayNameFor(_ => Model.Name)</label>
+                <label for="task-name" class="control-label">@Html.DisplayNameFor(_ => Model.Name)</label>
                 <div class="input-group">
-                    <textarea id="Recipe-name" class="form-control" aria-describedby="Recipe-help" rows="1"
+                    <textarea id="task-name" class="form-control" aria-describedby="task-name-help" rows="1"
                               oninput="document.getElementById('@(Html.IdFor(_ => Model.UserTask.Name))').value = this.value">@Model.UserTask.Name</textarea>
-                    <input type="submit" value="@(Model.CompletedForSection ? "Completed" : "Complete")" class="btn btn-outline-secondary allow-demo" />
+                    <input type="submit" value="@(Model.CompletedForSection ? "Completed" : "Complete")" class="btn btn-outline-secondary" />
                 </div>
                 <span asp-validation-for="Name" class="text-danger"></span>
-                <div id="Recipe-help" class="form-text">
-                    @Html.DisplayDescriptionFor(_ => Model.Name)
-                </div>
+                <div id="task-name-help" class="form-text">Last Completed: @Model.UserTask.LastCompleted.ToShortDateString()</div>
             </div>
         </form>
 
@@ -32,16 +30,13 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
-                <label for="exercise-date" class="control-label">@Html.DisplayNameFor(_ => Model.UserTask)</label>
+                <label for="task-date" class="control-label">@Html.DisplayNameFor(_ => Model.UserTask)</label>
                 <div class="input-group">
-                    <input type="text" id="exercise-date" class="form-control" disabled="disabled" aria-describedby="exercise-date-help" rows="1" value="@((Model.UserTask.RefreshAfter ?? Model.UserTask.LastSeen).ToString("O"))" />
+                    <input type="text" id="task-date" class="form-control" disabled="disabled" aria-describedby="task-date-help" rows="1" value="@((Model.UserTask.RefreshAfter ?? Model.UserTask.LastSeen).ToString("O"))" />
                     <input type="submit" value="Refresh" class="btn btn-outline-secondary allow-demo" />
                 </div>
-
                 <span asp-validation-for="UserTask" class="text-danger"></span>
-                <div id="exercise-date-help" class="form-text">
-                    @Html.DisplayDescriptionFor(_ => Model.UserTask)
-                </div>
+                <div id="task-date-help" class="form-text">@Html.DisplayDescriptionFor(_ => Model.UserTask)</div>
             </div>
         </form>
     }
